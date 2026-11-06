@@ -1,0 +1,79 @@
+:root {
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "BIZ UDPMincho", "Noto Serif JP", serif;
+  --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif;
+  --fs: 17px;
+}
+html[data-size="s"] { --fs: 15px; }
+html[data-size="m"] { --fs: 17px; }
+html[data-size="l"] { --fs: 20px; }
+
+html[data-theme="white"]  { --bg: #ffffff; --fg: #262626; --mute: #8c8c8c; --line: #e7e7e7; }
+html[data-theme="kinari"] { --bg: #f4eee0; --fg: #3a3329; --mute: #8e836f; --line: #e1d8c3; }
+html[data-theme="dark"]   { --bg: #151515; --fg: #cdc8be; --mute: #7a766e; --line: #2b2b2b; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { background: var(--bg); color: var(--fg); -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--mute); outline-offset: 2px; }
+
+.wrap { max-width: calc(var(--fs) * 36 + 40px); margin: 0 auto; padding: 0 20px 64px; }
+
+/* 上の帯 */
+.bar {
+  position: relative; display: flex; align-items: center; justify-content: space-between;
+  max-width: calc(var(--fs) * 36 + 40px); margin: 0 auto; padding: 14px 20px;
+  font-size: 14px; color: var(--mute);
+}
+.cfg-btn { visibility: hidden; width: 40px; height: 32px; font-family: var(--serif); font-size: 16px; color: var(--mute); }
+.js .cfg-btn { visibility: visible; }
+.cfg-btn[aria-expanded="true"], .cfg-btn:hover { color: var(--fg); }
+.cfg {
+  position: absolute; top: 48px; right: 20px; z-index: 10;
+  display: grid; gap: 12px; padding: 14px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
+}
+.row { display: flex; gap: 6px; }
+.row button { min-width: 44px; height: 36px; padding: 0 8px; border-radius: 3px; color: var(--mute); transition: color .12s; }
+.row button:hover { color: var(--fg); }
+.row button[aria-pressed="true"] { color: var(--fg); text-decoration: underline; text-underline-offset: 0.3em; }
+.sz-s { font-size: 13px; } .sz-m { font-size: 16px; } .sz-l { font-size: 20px; }
+.row button { font-family: var(--serif); }
+.row .sw { border: 1px solid var(--line); font-size: 13px; }
+.row .sw.sw-white  { background: #ffffff; color: #262626; }
+.row .sw.sw-kinari { background: #f4eee0; color: #3a3329; }
+.row .sw.sw-dark   { background: #151515; color: #cdc8be; }
+
+/* 目次 */
+.work { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: 0.04em; margin: 40px 0 28px; }
+.start { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
+.go {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  padding: 10px 18px; border: 1px solid var(--fg); border-radius: 3px;
+  transition: background-color .12s, color .12s;
+}
+.go:hover { text-decoration: none; background: var(--fg); color: var(--bg); }
+.go:active { transform: translateY(1px); }
+.resume-ep { font-size: 13px; opacity: 0.75; }
+.toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.toc li { border-bottom: 1px solid var(--line); }
+.toc a { display: flex; gap: 16px; padding: 15px 2px; font-family: var(--serif); font-size: 17px; }
+.toc .no { min-width: 4em; color: var(--mute); }
+
+/* 各話 */
+.ep-head { margin: 36px 0 40px; font-family: var(--serif); }
+.ep-no { margin: 0 0 6px; font-size: 14px; color: var(--mute); }
+.ep-name { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: 0.04em; }
+.text { font-family: var(--serif); font-size: var(--fs); line-height: 1.95; letter-spacing: 0.02em; word-break: normal; line-break: strict; overflow-wrap: anywhere; }
+.text p { margin: 0 0 1em; }
+.pager {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+  margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px;
+}
+.pager a { padding: 10px 4px; }
+.pager .next { justify-self: end; }
+.pager .toc-link { color: var(--mute); }
