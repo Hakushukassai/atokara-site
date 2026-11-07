@@ -50,6 +50,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* 目次 */
 .work { font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: 0.04em; margin: 40px 0 28px; }
+.synopsis { font-family: var(--serif); font-size: 16px; line-height: 1.9; margin: -8px 0 32px; }
+.text rt { font-size: 0.5em; }
 .start { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
 .go {
   display: inline-flex; align-items: baseline; gap: 10px;
